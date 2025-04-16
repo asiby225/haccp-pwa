@@ -28,6 +28,8 @@ def local_css(file_name):
 #  Pour simplifier, nous utiliserons des fichiers CSV.
 #  Pour une application plus robuste, une base de données est recommandée.
 def save_data(module, data):
+    import os
+    os.makedirs("data", exist_ok=True)  # 🔧 créer le dossier si besoin
     filename = f"data/{module}.csv"  # Create a 'data' folder
     try:
         existing_data = pd.read_csv(filename)
