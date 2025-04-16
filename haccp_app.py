@@ -91,12 +91,14 @@ def controle_reception():
         save_data("reception", data)
         st.success("Contrôle enregistré avec succès!")
         # Ajout du bouton de téléchargement
+        df = pd.DataFrame([data])
         st.download_button(
             label="📥 Télécharger la fiche CSV",
-            data=updated_data.to_csv(index=False),
-            file_name=filename,
+            data=df.to_csv(index=False),
+            file_name="fiche_controle_reception.csv",
             mime="text/csv"
         )
+
     
     # Display previous data
     if st.checkbox("Afficher les contrôles précédents"):
