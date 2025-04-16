@@ -90,6 +90,13 @@ def controle_reception():
         }
         save_data("reception", data)
         st.success("Contrôle enregistré avec succès!")
+        # Ajout du bouton de téléchargement
+        st.download_button(
+            label="📥 Télécharger la fiche CSV",
+            data=updated_data.to_csv(index=False),
+            file_name=filename,
+            mime="text/csv"
+        )
     
     # Display previous data
     if st.checkbox("Afficher les contrôles précédents"):
